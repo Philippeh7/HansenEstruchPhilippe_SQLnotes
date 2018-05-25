@@ -52,7 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
-            //Append stuff
+            for(int i = 0; i<res.getCount(); i++){
+                for(int k = 0; k<res.getColumnCount(); k++){
+                    buffer.append(res.getString(k) + "\n");
+                }
+                buffer.append("\n");
+                res.moveToNext();
+            }
         }
         Log.d("MyContactApp2018",  "MainActivity: viewData: assembled string buffer");
         showMessage("Error","No Data Found in Database");
